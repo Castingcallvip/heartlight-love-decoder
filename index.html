@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>HeartLight Reflection App</title>
+  <link rel='stylesheet' href='css/style.css'>
+</head>
+<body>
+  <main class='phone-shell'>
+    <section id='authScreen' class='screen active'>
+      <div class='auth-hero'>
+        <div class='logo'>HL</div>
+        <p class='eyebrow'>Love Message Decoder</p>
+        <h1>Reflect with clarity, kindness, and faith.</h1>
+        <p class='muted'>Decode conversations, notice patterns, and choose healthy responses with a calm, grounded mindset.</p>
+      </div>
+
+      <div class='card auth-card'>
+        <div class='segmented'>
+          <button class='segment active' data-auth-tab='login'>Login</button>
+          <button class='segment' data-auth-tab='signup'>Sign Up</button>
+        </div>
+
+        <form id='loginForm' class='auth-form auth-panel active'>
+          <label>Email</label>
+          <input type='email' id='loginEmail' placeholder='you@example.com' required>
+          <label>Password</label>
+          <input type='password' placeholder='••••••••' required>
+          <button class='primary-btn' type='submit'>Continue</button>
+        </form>
+
+        <form id='signupForm' class='auth-form auth-panel'>
+          <label>Full Name</label>
+          <input type='text' id='signupName' placeholder='Alex Morgan' required>
+          <label>Email</label>
+          <input type='email' id='signupEmail' placeholder='you@example.com' required>
+          <label>Password</label>
+          <input type='password' placeholder='Create password' required>
+          <button class='primary-btn' type='submit'>Create Account</button>
+        </form>
+
+        <div class='divider'><span>or continue with</span></div>
+        <div class='social-row'>
+          <button class='social-btn' data-social='Google'>G</button>
+          <button class='social-btn' data-social='Apple'></button>
+          <button class='social-btn' data-social='Facebook'>f</button>
+        </div>
+      </div>
+    </section>
+
+    <section id='appScreen' class='screen app-screen'>
+      <header class='topbar'>
+        <div>
+          <p class='eyebrow'>Welcome back</p>
+          <h2 id='greeting'>Hi, Alex</h2>
+        </div>
+        <button id='miniProfile' class='avatar'>A</button>
+      </header>
+
+      <div class='tab-page active' id='dashboardPage'>
+        <div class='card gradient-card'>
+          <p class='eyebrow light'>Today’s reflection</p>
+          <h3>Speak the truth in love, and pause before assuming intention.</h3>
+          <p>Use discernment, not fear, as your guide.</p>
+        </div>
+
+        <div class='stats-grid'>
+          <div class='stat card'>
+            <span>Decodes</span>
+            <strong id='decodeCount'>0</strong>
+            <small>This week</small>
+          </div>
+          <div class='stat card'>
+            <span>Clarity</span>
+            <strong>82%</strong>
+            <small>Journal trend</small>
+          </div>
+        </div>
+
+        <div class='card'>
+          <div class='section-title'>
+            <h3>Recent activity</h3>
+            <button class='text-btn' data-tab-target='decoderPage'>New decode</button>
+          </div>
+          <ul class='activity-list' id='activityList'>
+            <li><span class='dot green'></span><div><b>Healthy response saved</b><small>Try asking one calm clarifying question.</small></div></li>
+            <li><span class='dot yellow'></span><div><b>Boundary reminder</b><small>Notice consistency, not just sweet words.</small></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class='tab-page' id='decoderPage'>
+        <div class='card'>
+          <h3>Love Message Decoder</h3>
+          <p class='muted'>Paste a text conversation. This tool suggests possible meanings, flags, and healthy responses.</p>
+          <div class='disclaimer'>Disclaimer: This app cannot know anyone’s true intentions. Use it for reflection, not certainty.</div>
+          <textarea id='conversationInput' placeholder='Paste messages here...'></textarea>
+          <button id='decodeBtn' class='primary-btn'>Decode Message</button>
+        </div>
+
+        <div id='decodeResults' class='results'></div>
+      </div>
+
+      <div class='tab-page' id='reflectionPage'>
+        <div class='card reflection-card'>
+          <span class='badge'>Faith-Based Reflection</span>
+          <h3 id='verseTitle'>Gentle wisdom</h3>
+          <p id='reflectionText'>Let your response be shaped by patience, honesty, and peace. You can be compassionate without abandoning your boundaries.</p>
+          <button id='newReflectionBtn' class='secondary-btn'>New Reflection</button>
+        </div>
+
+        <div class='card'>
+          <h3>Prayerful prompt</h3>
+          <p class='muted'>What do I know, what am I assuming, and what loving boundary would help me stay grounded?</p>
+          <textarea id='journalInput' placeholder='Write a private reflection...'></textarea>
+          <button id='saveJournalBtn' class='primary-btn'>Save Reflection</button>
+        </div>
+      </div>
+
+      <div class='tab-page' id='profilePage'>
+        <div class='card profile-card'>
+          <div class='big-avatar' id='profileInitials'>AM</div>
+          <h3 id='profileNameText'>Alex Morgan</h3>
+          <p id='profileEmailText' class='muted'>alex@example.com</p>
+        </div>
+
+        <form id='profileForm' class='card profile-form'>
+          <label>Full Name</label>
+          <input id='profileName' type='text' value='Alex Morgan'>
+          <label>Email</label>
+          <input id='profileEmail' type='email' value='alex@example.com'>
+          <label>Reflection Goal</label>
+          <select id='profileGoal'>
+            <option>Communicate more clearly</option>
+            <option>Notice healthy patterns</option>
+            <option>Practice faith-filled patience</option>
+            <option>Build stronger boundaries</option>
+          </select>
+          <button class='primary-btn' type='submit'>Save Changes</button>
+          <button id='logoutBtn' class='ghost-btn' type='button'>Log Out</button>
+        </form>
+      </div>
+
+      <nav class='bottom-nav'>
+        <button class='nav-item active' data-tab='dashboardPage'><span>⌂</span>Home</button>
+        <button class='nav-item' data-tab='decoderPage'><span>♡</span>Decode</button>
+        <button class='nav-item' data-tab='reflectionPage'><span>✦</span>Reflect</button>
+        <button class='nav-item' data-tab='profilePage'><span>◎</span>Profile</button>
+      </nav>
+    </section>
+  </main>
+
+  <div id='toast' class='toast'>Saved</div>
+  <script src='js/script.js'></script>
+</body>
+</html>
